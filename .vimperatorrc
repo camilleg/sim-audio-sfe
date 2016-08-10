@@ -1,0 +1,5 @@
+" Keystroke shortcuts for the Firefox plugin vimperator.  Used by translate.rb.
+" Copy this file to $HOME.
+
+map <F2> :w!/tmp/a.html<CR><Esc>
+map <F3> :!/r/lorelei/sfe/scrape-google/urls-from-googlepage.rb /tmp/a.html /tmp/wiki-urls.txt<CR><Esc>
