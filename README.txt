@@ -18,10 +18,6 @@ To extract letter n-grams from the HADR documents and the neutral Swahili text:
 cd ngrams; make
 cd scrape-english; ./get-ngrams.sh
 
-Install http://svmlight.joachims.org/,
-in particular its executables svm_learn and svm_classify.
-If you like, in svm_common.h reduce MAXFEATNUM to about two million, and re-make.
-
 http://zx81.isl.uiuc.edu/tmp/HADR-scraped/ contains
 the URLs of the English Wikipedia articles,
 their JSON content, extracted English text, Swahili translations,
@@ -38,6 +34,10 @@ contains the largest articles in the Swahili Wikipedia,
 as JSON, extracted Swahili text, and in reduced alphabet.
 
 TRAINING
+
+Install http://svmlight.joachims.org/,
+in particular its executables svm_learn and svm_classify.
+If you like, in svm_common.h reduce MAXFEATNUM to about two million, and re-make.
 
 To train the topic classifiers:
 cd scrape-english; ./train.sh
