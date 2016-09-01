@@ -23,6 +23,7 @@ xsane = x.gsub("\n"," ") .gsub("(", "\(") .gsub(")", "\)") .split(' ')
 
 $dir = Dir.pwd
 $dst = "/zx/trash/wiki-swahili-fresh"
+`mkdir -p #$dst`
 Dir.chdir $src
 xsane.each {|f|
   fSafe = f.shellescape
@@ -33,10 +34,9 @@ xsane.each {|f|
   else
     # Something about title.shellescape is needed?
     `#$dir/onepage_wikipedia.py #{title} | tee #$dst/#{title}.content | #$dir/wiki-tidy.py > #$dst/#{title}.txt 2>> /tmp/slurp.log`
-    `sleep 2` # don't stress wikipedia
+    `sleep 1` # don't stress wikipedia
   end
 }
 
-Dir.chdir $dst
-`find . -name \*.txt -size -450c -delete`
+`find #$dst -name \*.txt -size -450c -delete`
 exit 0
